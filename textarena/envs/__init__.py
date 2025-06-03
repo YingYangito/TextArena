@@ -3,7 +3,6 @@
 from textarena.utils.jury import OpenRouterJury
 from textarena.envs.registration import register
 
-
 # Mastermind (single-player)
 register(id="Mastermind-v0", entry_point="textarena.envs.Mastermind.env:MastermindEnv", code_length=4, num_numbers=6, max_turns=20, duplicate_numbers=False)
 register(id="Mastermind-v0-hard", entry_point="textarena.envs.Mastermind.env:MastermindEnv", code_length=4, num_numbers=8, max_turns=30, duplicate_numbers=False)
@@ -340,3 +339,19 @@ register(id="SVAMP-v0", entry_point="textarena.envs.ClassicalReasoningEvals.env:
 
 # TabMWP - Tabular Math Word Problems
 register(id="TABMWP-v0", entry_point="textarena.envs.ClassicalReasoningEvals.env:ClassicalReasoningEvalsEnv", file_name="tabmwp/test.jsonl", n_samples=None)
+
+# Fact or Fiction (single-player)
+register(
+    id='FactOrFiction-v0',
+    entry_point='textarena.envs.fact_or_fiction:FactOrFictionEnv'
+)
+
+from .fact_or_fiction import FactOrFictionEnv
+
+import gym
+from gym.envs.registration import register
+
+register(
+    id='FactOrFiction-v0',
+    entry_point='textarena.envs.fact_or_fiction:FactOrFictionEnv',
+)
